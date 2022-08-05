@@ -73,7 +73,7 @@ spec:
 
 ### Runtime Settings
 Within the `spec` of a `JsPolicy` object, you can also define certain settings that are relevant during the execution of a policy:
-- `violationPolicy`: `deny` (default) or `warn` (for testing) when the policy logic calls the `deny()` function
+- `violationPolicy`: `Deny` (default), `Warn` (for testing) or `Dry` when the policy logic calls the `deny()` function
 - `failurePolicy`: `Fail` (default) or `Ignore` when jsPolicy fails to execute the policy or it aborts with a runtime error
 - `auditPolicy`: `Log` (default) or `Skip` logging any policy violations (requests that lead to `deny()`) in the status of this policy
 - `auditLogSize`: Maximum number of violations that should be stored in the status of this policy (default: `10` violations)
@@ -87,7 +87,7 @@ metadata:
 spec:
   operations: ["CREATE", "UPDATE"]
   resources: ["pods", "deployments"]
-  violationPolicy: warn
+  violationPolicy: Warn
   failurePolicy: Ignore
   auditPolicy: Skip
   timeoutSeconds: 30
